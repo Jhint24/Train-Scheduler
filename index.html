@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trian Scheduler</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron" style="background-color: #20315A ; color: white;">
+      <h1 class="text-center">Train Time</h1>
+    </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <br>
+    
+            <div class="panel panel-primary">
+    
+              <div class="panel-heading">
+                <h3 class="panel-title">Current Train Schedule</h3>
+              </div>
+              <div class="panel-body" id="well-section">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Add Train</h3>
+          </div>
+          <div class="panel-body">
+            <form role="form">
+              <div class="form-group">
+                <label for="search">Train Name</label>
+                <input type="text" class="form-control" id="search-name">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Destination</label>
+                <input type="text" class="form-control" id="search-role">
+              </div>
+              <div class="form-group">
+                <label for="start-year">First Train Time (HH:MM - 24 Hour Clock)</label>
+                <input type="text" class="form-control" id="start-date">
+              </div>
+              <div class="form-group">
+                <label for="end-year">Frequency (mins)</label>
+                <input type="text" class="form-control" id="monthly-rate">
+              </div>
+              <button type="submit" class="btn btn-default" id="run-search">Search</button>
+              <button type="button" class="btn btn-default" id="clear-all">Clear Results</button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+
+</html>
+<!--initlalize firebase, create database reference, captire button click, grab from text, code for
