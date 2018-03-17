@@ -22,10 +22,10 @@
   $('#run-submit').on('click', function(e) 
   {
     e.preventDefault();
-    name = $('#train-name').val();
-    dest = $('#train-dest').val();
-    time = $('#train-time').val();
-    freq = $('#train-freq').val();
+    name = $('#train-name').val().trim();
+    dest = $('#train-dest').val().trim();
+    time = $('#train-time').val().trim();
+    freq = $('#train-freq').val().trim();
     console.log(name, dest, time, freq)
     console.log(moment().format("HH:MM a"));
     //upload to database
@@ -46,7 +46,7 @@
         
 });
 //child database firebase
-database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {
     
     // full list of items to the well
     $("#well-section").append("<div class='well row'><span class='train-name col-md-2'> " + snapshot.val().name +
