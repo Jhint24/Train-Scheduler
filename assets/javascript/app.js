@@ -61,8 +61,7 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
     //divide minutes / frequency = get remainder 
     //subtract frequencey - remainder = will give time till next train
     //add time till next train to current = time of next train
-    // full list of items to the well
+    // appending rows/cells to the table
     $(".append-trains").append("<tr><th scope='row'>" + snapshot.val().name + "</th><td>" + snapshot.val().dest +
-    "</td><td>" + snapshot.val().freq +
-    "</td><td>" + snapshot.val().time + "</td>/<tr>");
+    "</td><td>" + snapshot.val().freq +"</td>/<tr>");
   });
