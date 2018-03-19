@@ -37,3 +37,9 @@ body
 background-color: black;
 text-align: center;
 }
+
+.form-control
+{
+    font-size: 25px;
+    color: blue;
+}
