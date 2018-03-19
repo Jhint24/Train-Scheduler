@@ -74,7 +74,7 @@ database.ref().orderByChild("dateAdded").limitToLast(100).on("child_added", func
   //add time till next train to current = time of next train
   var timeOfNext = moment().add(minsAway, "minutes");
   //format for military time
-  nextTrainMil = moment(timeOfNext).format("HH:mm");
+  nextTrainMil = moment(timeOfNext).format("hh:mm a");
 
   // appending rows/cells to the table
     $(".append-trains").append("<tr><th scope='row'>" + snapshot.val().name + "</th><td>" + snapshot.val().dest +
