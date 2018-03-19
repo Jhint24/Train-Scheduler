@@ -28,6 +28,24 @@
     dest = $('#train-dest').val().trim();
     time = $('#train-time').val().trim();
     freq = $('#train-freq').val().trim();
+   //validate time forms 
+    var timeValid = moment(time, "HH:mm", true).isValid();
+    var freqValid = moment(freq, "m", "mm", "mmm", "mmmm", true).isValid();
+    console.log(timeValid, freqValid);
+    if (timeValid === false)
+    {
+      alert("Please input a valid time format");
+      clearForms();
+      
+    }
+    else if (freqValid === false)
+    {
+      alert("please input a valid number of minutes");
+      clearForms();
+    }
+
+    else  {
+
     console.log(name, dest, time, freq);
     //upload to database
     database.ref().push(
@@ -37,13 +55,8 @@
         time: time,
         freq: freq
     });
-        //clear forms
-      $('#train-name').val('');
-      $('#train-dest').val('');
-      $('#train-time').val('');
-      $('#train-freq').val('');
-  
-    
+  }
+  clearForms();
 });
 
 //clear forms with clear button click
@@ -83,6 +96,15 @@ database.ref().orderByChild("dateAdded").limitToLast(100).on("child_added", func
     "</td><td>" + minsAway + 
     "</td></tr>");
   });
+
+          //clear forms
+      function clearForms()
+      {
+      $('#train-name').val('');
+      $('#train-dest').val('');
+      $('#train-time').val('');
+      $('#train-freq').val('');
+      }
     //error logging
     //need to add form submit functions to make sure datya is correct information
     //add styling
