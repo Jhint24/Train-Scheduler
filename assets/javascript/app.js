@@ -45,6 +45,16 @@
     
         
 });
+
+//clear forms with clear button click
+  $("#clear-all").on('click', function(f)
+{
+  f.preventDefault();
+  $('#train-name').val('');
+  $('#train-dest').val('');
+  $('#train-time').val('');
+  $('#train-freq').val('');
+});
 //child database firebase
 database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {
     //subtract current time from the first train value in minutes
@@ -52,7 +62,7 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
     //subtract frequencey - remainder = will give time till next train
     //add time till next train to current = time of next train
     // full list of items to the well
-    $(".append-trains").append("<th scope='row'>" + snapshot.val().name + "</th><td>" + snapshot.val().dest +
+    $(".append-trains").append("<tr><th scope='row'>" + snapshot.val().name + "</th><td>" + snapshot.val().dest +
     "</td><td>" + snapshot.val().freq +
-    "</td><td>" + snapshot.val().time + "</td>");
+    "</td><td>" + snapshot.val().time + "</td>/<tr>");
   });
