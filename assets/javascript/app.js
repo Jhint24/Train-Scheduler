@@ -83,3 +83,6 @@ database.ref().orderByChild("dateAdded").limitToLast(100).on("child_added", func
     "</td><td>" + minsAway + 
     "</td></tr>");
   });
+    //error logging
+    //need to add form submit functions to make sure datya is correct information
+    //add styling
