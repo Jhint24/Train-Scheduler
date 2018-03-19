@@ -18,6 +18,8 @@
   var dest;
   var time;
   var freq;
+  var nextTrainTime;
+  var minsAway;
   //add click functions
   $('#run-submit').on('click', function(e) 
   {
@@ -26,8 +28,7 @@
     dest = $('#train-dest').val().trim();
     time = $('#train-time').val().trim();
     freq = $('#train-freq').val().trim();
-    console.log(name, dest, time, freq)
-    console.log(moment().format("HH:MM a"));
+    console.log(name, dest, time, freq);
     //upload to database
     database.ref().push(
     {
@@ -43,7 +44,8 @@
       $('#train-freq').val('');
   
     
-        
+      var firstTimeConverted = moment(time, "HH:mm a").subtract(1, "years");
+      console.log(firstTimeConverted);
 });
 
 //clear forms with clear button click
@@ -56,7 +58,11 @@
   $('#train-freq').val('');
 });
 //child database firebase
-database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {
+database.ref().orderByChild("dateAdded").limitToLast(100).on("child_added", function(snapshot) {
+//pull the values from firebase
+  freq = childSnapshot.val().freq;
+  time = childSnapshot.val().time;
+
     //subtract current time from the first train value in minutes
     //divide minutes / frequency = get remainder 
     //subtract frequencey - remainder = will give time till next train
