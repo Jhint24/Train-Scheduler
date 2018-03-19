@@ -47,10 +47,12 @@
 });
 //child database firebase
 database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {
-    
+    //subtract current time from the first train value in minutes
+    //divide minutes / frequency = get remainder 
+    //subtract frequencey - remainder = will give time till next train
+    //add time till next train to current = time of next train
     // full list of items to the well
-    $("#well-section").append("<div class='well row'><span class='train-name col-md-2'> " + snapshot.val().name +
-    " </span><span class='employee-role col-md-2'> " + snapshot.val().dest +
-    " </span><span class='employee-start col-md-2'> " + snapshot.val().time +
-    " </span><span class='employee-rate col-md-2'> " + snapshot.val().freq + " </span></div>");
+    $(".append-trains").append("<th scope='row'>" + snapshot.val().name + "</th><td>" + snapshot.val().dest +
+    "</td><td>" + snapshot.val().time +
+    "</td><td>" + snapshot.val().freq + "</td>");
   });
