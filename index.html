@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <title>Trian Scheduler</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 
@@ -12,19 +14,16 @@
 
   <div class="container">
 
-    <div class="jumbotron">
-      <h1 class="text-center">Train Time</h1>
-    </div>
         <div class="row">
           <div class="col-sm-12">
             <br>
     
-            <div class="panel panel-primary">
+            <div class="panel panel-primary main-body">
     
-              <div class="panel-heading">
+              <div class="panel-heading heading-color">
                 <h3 class="panel-title">Current Train Schedule</h3>
               </div>
-              <div class="panel-body">
+              <div class="panel-body main-body">
                   <table class="table table-striped table-hover">
                       <thead class="thead-dark">
                         <tr>
@@ -47,8 +46,8 @@
     <div class="row">
       <div class="col-sm-12">
         <br>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
+        <div class="panel panel-primary main-body">
+          <div class="panel-heading heading-color">
             <h3 class="panel-title">Add Train</h3>
           </div>
           <div class="panel-body">
@@ -69,8 +68,8 @@
                 <label for="freq-of-train">Frequency (mins)</label>
                 <input type="text" class="form-control" id="train-freq">
               </div>
-              <button type="submit" class="btn btn-default" id="run-submit">Submit</button>
-              <button type="button" class="btn btn-default" id="clear-all">Clear Results</button>
+              <button type="submit" class="btn btn-lg btn-outline-dark" id="run-submit">Submit</button>
+              <button type="button" class="btn btn-lg btn-outline-dark" id="clear-all">Clear Results</button>
 
             </form>
           </div>

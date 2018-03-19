@@ -1,0 +1,39 @@
+@font-face
+{
+    font-family: ticketing;
+    src: url(Ticketing.ttf);
+}
+
+
+body
+{
+    background-image: url(../images/tracks.jpg);
+    background-size: auto;
+    color: black;
+
+}
+
+.text-center
+{
+    font-family: ticketing;
+}
+
+.main-body
+{
+    font-family: ticketing;
+    font-size: 2rem;
+}
+
+.jumbotron
+{
+    background: none; 
+    color:darkblue;
+    font-weight: bolder;
+    font-size: 100px;
+}
+
+.panel-primary>.panel-heading
+{
+background-color: black;
+text-align: center;
+}
