@@ -44,8 +44,6 @@
       $('#train-freq').val('');
   
     
-      var firstTimeConverted = moment(time, "HH:mm a").subtract(1, "years");
-      console.log(firstTimeConverted);
 });
 
 //clear forms with clear button click
@@ -59,12 +57,21 @@
 });
 //child database firebase
 database.ref().orderByChild("dateAdded").limitToLast(100).on("child_added", function(snapshot) {
-//pull the values from firebase
-  freq = childSnapshot.val().freq;
-  time = childSnapshot.val().time;
+  //pull the values from firebase
+  freq = snapshot.val().freq;
+  time = snapshot.val().time;
+  //convert time
+  var firstTimeConverted = moment(time, "HH:mm a").subtract(1, "years");
+  console.log(firstTimeConverted);
+  var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
+  console.log(timeDiff);
+  //divide minutes / frequency = get remainder
+  var remainder = timeDiff % freq;
+  console.log(remainder);
+  //subtract current time from the first train value in minutes
+  var minsAway = freq - remainder;
+  console.log(minsAway);
 
-    //subtract current time from the first train value in minutes
-    //divide minutes / frequency = get remainder 
     //subtract frequencey - remainder = will give time till next train
     //add time till next train to current = time of next train
     // appending rows/cells to the table
