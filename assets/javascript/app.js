@@ -53,6 +53,6 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
     //add time till next train to current = time of next train
     // full list of items to the well
     $(".append-trains").append("<th scope='row'>" + snapshot.val().name + "</th><td>" + snapshot.val().dest +
-    "</td><td>" + snapshot.val().time +
-    "</td><td>" + snapshot.val().freq + "</td>");
+    "</td><td>" + snapshot.val().freq +
+    "</td><td>" + snapshot.val().time + "</td>");
   });
