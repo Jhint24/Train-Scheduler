@@ -28,17 +28,17 @@
     dest = $('#train-dest').val().trim();
     time = $('#train-time').val().trim();
     freq = $('#train-freq').val().trim();
+
    //validate time forms 
     var timeValid = moment(time, "HH:mm", true).isValid();
-    var freqValid = moment(freq, "m", "mm", "mmm", "mmmm", true).isValid();
-    console.log(timeValid, freqValid);
+    console.log(timeValid, freq);
     if (timeValid === false)
     {
       alert("Please input a valid time format");
       clearForms();
       
     }
-    else if (freqValid === false)
+    else if ($.isNumeric(freq) === false)
     {
       alert("please input a valid number of minutes");
       clearForms();
