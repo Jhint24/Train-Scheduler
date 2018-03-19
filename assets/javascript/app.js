@@ -71,10 +71,15 @@ database.ref().orderByChild("dateAdded").limitToLast(100).on("child_added", func
   //subtract current time from the first train value in minutes
   var minsAway = freq - remainder;
   console.log(minsAway);
+  //add time till next train to current = time of next train
+  var timeOfNext = moment().add(minsAway, "minutes");
+  //format for military time
+  nextTrainMil = moment(timeOfNext).format("HH:mm");
 
-    //subtract frequencey - remainder = will give time till next train
-    //add time till next train to current = time of next train
-    // appending rows/cells to the table
+  // appending rows/cells to the table
     $(".append-trains").append("<tr><th scope='row'>" + snapshot.val().name + "</th><td>" + snapshot.val().dest +
-    "</td><td>" + snapshot.val().freq +"</td>/<tr>");
+    "</td><td>" + snapshot.val().freq + 
+    "</td><td>" + nextTrainMil + 
+    "</td><td>" + minsAway + 
+    "</td></tr>");
   });
